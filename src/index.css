@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Wotfard';
+  src: url('../src/fonts/wotfard.ttf') format('truetype');
+}
+
+.bg-customized {
+  background-image: radial-gradient(#333333 0px, transparent 1px);
+  background-size: 20px 20px;
+}
+nav {
+  background-image: radial-gradient(#333333 0px, transparent 1px);
+  background-size: 10px 10px;
+  backdrop-filter: blur(5px);
+}
