@@ -16,3 +16,33 @@ nav {
   background-size: 10px 10px;
   backdrop-filter: blur(5px);
 }
+@media (min-width: 768px) {
+  footer div b {
+    color: #555;
+  }
+  footer div p,
+  footer div p span {
+    color: #fff;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 462px) {
+  nav div h1 {
+    width: 100vw;
+    text-align: center;
+  }
+}
+
+@media (min-width: 350px) {
+  nav form div input.input-text {
+    width: 150px;
+  }
+  footer div {
+    background-image: linear-gradient(
+      to right,
+      rgb(175, 0, 134),
+      rgb(0, 221, 207),
+      rgb(0, 255, 132)
+    );
+  }
+}
