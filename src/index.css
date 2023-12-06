@@ -11,6 +11,48 @@
   background-image: radial-gradient(#333333 0px, transparent 1px);
   background-size: 20px 20px;
 }
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 55px;
+  aspect-ratio: 1;
+  --g1:conic-gradient(from  90deg at 3px  3px ,#0000 90deg,rgb(175, 0, 134) 0);
+  --g2:conic-gradient(from -90deg at 22px 22px,#0000 90deg,rgb(0, 221, 207) 0);
+  background:var(--g1),var(--g1),var(--g1), var(--g2),var(--g2),var(--g2);
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  animation: loading 1.5s infinite;
+}
+@keyframes loading {
+  0%   {background-position:0    0   ,0 100%,100% 100% }
+  25%  {background-position:100% 0   ,0 100%,100% 100% }
+  50%  {background-position:100% 0   ,0 0   ,100% 100% }
+  75%  {background-position:100% 0   ,0 0   ,0    100% }
+  100% {background-position:100% 100%,0 0   ,0    100% }
+}
+
+.fetching_loader {
+  display: inline-flex;
+  gap: 10px;
+}
+.fetching_loader:before,
+.fetching_loader:after {
+  content: "";
+  height: 20px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side,rgba(0,0,0,1) 95%,rgba(0,0,0,1)) 35% 35%/6px 6px no-repeat
+    #fff;
+  animation: fetching 3s infinite;
+}
+@keyframes fetching {
+  0%,11%   {background-position:35% 35%}
+  14%,36%  {background-position:65% 35%}
+  38%,61%  {background-position:65% 65%}
+  64%,86%  {background-position:35% 65%}
+  88%,100% {background-position:35% 35%}
+}
+
 nav {
   background-image: radial-gradient(#333333 0px, transparent 1px);
   background-size: 10px 10px;

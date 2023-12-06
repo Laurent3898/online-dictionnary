@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { Definition, Meaning, Phonetic, Word } from '../types/types';
 import { useQuery } from 'react-query';
-import style from './Words.css';
+import Loading from './Loading';
+import Fetching from './Fetching';
 
 interface Props {
   word: string;
@@ -38,7 +39,7 @@ export default function Words({ word }: Props): JSX.Element {
   if (isLoading) {
     return (
       <div className="h-screen bg-white dark:bg-gray-900 flex justify-center items-center bg-customized">
-        <p className="text-gray-800 dark:text-gray-50 text-lg ">Loading...</p>
+        <Loading/>
       </div>
     );
   }
@@ -46,7 +47,7 @@ export default function Words({ word }: Props): JSX.Element {
   if (error) {
     return (
       <div className="h-screen bg-white dark:bg-gray-900 flex justify-center items-center bg-customized">
-        <p className="text-red-500 text-lg ">
+        <p className="text-rose-500 text-lg p-5 text-center">
           Sorry, there was an error fetching the word. Please try again later.
         </p>
       </div>
@@ -55,8 +56,8 @@ export default function Words({ word }: Props): JSX.Element {
 
   if (isFetching) {
     return (
-      <div className="h-screen bg-white dark:bg-gray-900 flex justify-center items-center bg-customized">
-        <p className="text-gray-800 dark:text-gray-50 text-lg ">Fetching...</p>
+      <div className="h-screen bg-slate-700 dark:bg-gray-900 flex justify-center items-center bg-customized">
+        <Fetching/>
       </div>
     );
   }
@@ -94,7 +95,7 @@ export default function Words({ word }: Props): JSX.Element {
         {data?.sourceUrls.map((sourceUrl: string, index: number) => (
           <div key={index} className="mt-4 decoration-sky-500">
             Source:{' '}
-            <a className="underline decoration-teal-500" href={sourceUrl}>
+            <a className="underline text-cyan-900 decoration-teal-500" href={sourceUrl}>
               {sourceUrl}
             </a>
           </div>
